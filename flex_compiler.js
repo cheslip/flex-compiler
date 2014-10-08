@@ -65,7 +65,7 @@ FlexCompiler.prototype.mxmlc = function(params, callback) {
   cmdArgs.push('--');
   cmdArgs.push(params.main);
   if(params.isLog) {
-  	console.log('**************** mxmlc args ***************');
+    console.log('**************** mxmlc args ***************');
     for (i = 0; i < cmdArgs.length; i++) {
       console.log('*    ' + cmdArgs[i]);
     }
@@ -77,25 +77,8 @@ FlexCompiler.prototype.mxmlc = function(params, callback) {
     console.log(path.join(params.flexSDKPath, 'bin/mxmlc'));
   }
 
-  var opts = {
-    cwd: path.join(params.flexSDKPath, 'bin')
-  };
-  var theMxmlc;
-  switch(os.platform()) {
-    case 'win32': {
-      theMxmlc = 'mxmlc';
-      break;
-    }
-    case 'linux': {
-      theMxmlc = './mxmlc';
-      break;
-    }
-    case 'darwin': {
-      theMxmlc = './mxmlc';
-      break;
-    }
-  }
-  var child = require('child_process').spawn(theMxmlc, cmdArgs, opts);
+  var theMxmlc = path.join(params.flexSDKPath, 'bin/mxmlc');
+  var child = require('child_process').spawn(theMxmlc, cmdArgs);
   child.stdout.on('data', function (data) {
     if(params.isLog) {
       var iconv = require('iconv-lite');
