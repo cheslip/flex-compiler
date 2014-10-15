@@ -62,6 +62,10 @@ FlexCompiler.prototype.mxmlc = function(params, callback) {
     cmdArgs.push('-output');
     cmdArgs.push(params.outputPath);
   }
+  if(params.targetPlayer) {
+    cmdArgs.push('--target-player');
+    cmdArgs.push(params.targetPlayer);
+  }
   cmdArgs.push('--');
   cmdArgs.push(params.main);
   if(params.isLog) {
