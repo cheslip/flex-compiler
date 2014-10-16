@@ -17,6 +17,7 @@ FlexCompiler.prototype.mxmlc = function(params, callback) {
   var frameRate  = 30;
   var cmdArgs    = [];
   var i;
+  params.flexSDKPath = params.flexSDKPath || "./node_modules/flex-sdk/lib/flex_sdk";
   if(params.sourcePath) {
     for (i = 0; i < params.sourcePath.length; i++) {
       cmdArgs.push('-source-path'); 
@@ -77,7 +78,7 @@ FlexCompiler.prototype.mxmlc = function(params, callback) {
     cmdArgs.push('-strict=true');
   }
   if(params.optimize === true) {
-    cmdArgs.push('optimize=true');
+    cmdArgs.push('-optimize=true');
   }
   cmdArgs.push('--');
   cmdArgs.push(params.main);

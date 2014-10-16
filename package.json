@@ -9,6 +9,7 @@
     "name": "shen100"
   },
   "dependencies": {
+    "flex-sdk": "^4.6.0-0",
     "iconv-lite": "0.4.4"
   },
   "description": "A Node.js module to compile Flex/ActionScript/MXML apps with the compiler from the Apache/Adobe Flex SDK.",
