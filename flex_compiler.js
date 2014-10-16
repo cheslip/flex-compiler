@@ -66,6 +66,19 @@ FlexCompiler.prototype.mxmlc = function(params, callback) {
     cmdArgs.push('--target-player');
     cmdArgs.push(params.targetPlayer);
   }
+  if(params.swfVersion) {
+    cmdArgs.push('-swf-version');
+    cmdArgs.push(params.swfVersion);
+  }
+  if(params.debug === true) {
+    cmdArgs.push('-debug=true');
+  }
+  if(params.strict === true) {
+    cmdArgs.push('-strict=true');
+  }
+  if(params.optimize === true) {
+    cmdArgs.push('optimize=true');
+  }
   cmdArgs.push('--');
   cmdArgs.push(params.main);
   if(params.isLog) {
