@@ -17,7 +17,8 @@ FlexCompiler.prototype.mxmlc = function(params, callback) {
   var frameRate  = 30;
   var cmdArgs    = [];
   var i;
-  params.flexSDKPath = params.flexSDKPath || "./node_modules/flex-sdk/lib/flex_sdk";
+  var defaultSdkPath = path.join(__dirname, 'node_modules/flex-sdk/lib/flex_sdk');
+  params.flexSDKPath = params.flexSDKPath || defaultSdkPath;
   if(params.sourcePath) {
     for (i = 0; i < params.sourcePath.length; i++) {
       cmdArgs.push('-source-path'); 
